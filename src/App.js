@@ -12,7 +12,7 @@ function App() {
       const res = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events')
       const { events } = await res.json()
 
-      setEventData(eventData)
+      setEventData(events)
       setLoading(false)
     }
 

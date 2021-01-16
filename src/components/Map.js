@@ -2,8 +2,14 @@ import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
 require ("dotenv").config();
 
-const Map = ({ center, zoom, api_key }) => {
-;
+const Map = ({ eventData, center, zoom, api_key }) => {
+    const markers = eventData.map((ev, index) => {
+        if(ev.categories[0].id === 8) {
+            return <LocationMarker key={index} lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} />
+        }
+        return null
+    })
+
     return (
         <div className="map">
             <GoogleMapReact
@@ -11,7 +17,7 @@ const Map = ({ center, zoom, api_key }) => {
                 defaultCenter={ center }
                 defaultZoom={ zoom }
             >
-                <LocationMarker lat={center.lat} lng={center.lng} />
+                {markers}
             </GoogleMapReact>
         </div>
     )
