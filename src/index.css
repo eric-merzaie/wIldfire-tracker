@@ -68,6 +68,15 @@ body {
   color: aliceblue;
 }
 
+@media only screen and (max-width: 500px) {
+  .location-info {
+    top: 70px;
+    right: 0;
+    left: 0;
+    width: auto;
+  }
+}
+
 .location-info ul {
   list-style-type: none;
   padding: 0;
